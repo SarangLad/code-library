@@ -6,7 +6,10 @@ Cause: cause of the bug
 Resolution: resolution of do not mistake next time
 
 Impact Areas: imacted areas
-<br/>
+
+
+
+---
 #User story and thier task - 
 
 User Story 12345
