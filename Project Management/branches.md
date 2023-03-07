@@ -4,7 +4,7 @@
 1. Create parent branch with name of version name
     Format - 
         X.X.X.X 
-        (Version Number)
+        (Version Number. Sub Version Number. Build Number.Sub Build Number)
 
     Example - 
         Current Project version is 3.0.0.0
