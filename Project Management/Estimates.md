@@ -16,7 +16,12 @@ User Story 12345
 
 
 US12345 - Investigation
+
 US12345 - Planning
+
 US12345 - Development
+
 US12345 - Testing
+
 US12345 - Documentation
+
