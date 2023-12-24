@@ -1,0 +1,608 @@
+
+//Token 
+var token = $('input[name="__RequestVerificationToken"]').val();
+__RequestVerificationToken: token,
+================================================================================================================
+//Show and Hide loader
+$(".loader").show();
+$(".loader").hide();
+================================================================================================================-
+
+<form method="post" enctype="multipart/form-data" asp-action="ManageProductFeatures" asp-controller="Products">
+	<div asp-validation-summary="All" class="text-danger"></div>
+</form>
+================================================================================================================-
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+
+================================================================================================================-
+//change event
+
+
+$("#projectKey").change(function() {
+	alert( $('option:selected', this).text() );
+});
+
+================================================================================================================-
+ViewBag.ErrorMessages = new List<string>
+{
+	"Error 1",
+	"Error 2",
+	"Error 3"
+};
+ViewBag.SuccessMessage = "The request was processed successfully.";
+ViewBag.ErrorMessage = "Error occurs while ";
+
+<partial name="MessagesPartial"/>
+
+================================================================================================================
+//open in new window
+<a href="#" id="getManageBrandRange" data-url="@Url.Action("CategoriesOrParameters","Products",new {ProductId = Model.ProductId})" data-title="Brand Range" onclick="return false;">
+Brand Range</a>
+
+$("#manageTopBrand, #getManageBrandRange, #getBrandRelatedBrand").click(function (event) {
+	event.preventDefault();
+
+	var url = $(this).data("url");
+	OpenNewWindow(url);
+});
+================================================================================================================
+
+================================================================================================================
+<table class="table table-striped detail-list-table">
+    <thead class="thead-dark">
+        <tr>
+            @*<th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+         <tr>
+                <td></td>
+            </tr>
+    </tbody>
+</table>
+================================================================================================================
+Fields
+
+------------------ Required ---------------------
+<sup>*</sup>
+
+------------------ Text ---------------------
+<div class="input-group">
+	<div class="field-titles">
+		<label> Image Name <span data-tooltip class="top has-tip" data-click-open="false" tabindex="1" title="Image Name"><img src="~/assets/images/tooltip.svg" alt=""></span></label>
+	</div>
+	<div class="fields">
+		<div class="prod-tit-input">
+			<input asp-for="ImageName" class="form-control" />
+		</div>
+	</div>
+</div>
+------------------ Image ---------------------
+<div class="input-group">
+	<div class="field-titles">
+		<label> Upload Image <span data-tooltip class="top has-tip" data-click-open="false" tabindex="1" title="Upload Name"><img src="~/assets/images/tooltip.svg" alt=""></span></label>
+	</div>
+	<div class="fields">
+		<div class="prod-tit-input">
+			<input asp-for="Image" type="file" accept="image/*">
+		</div>
+	</div>
+</div>
+
+------------------ TextArea ---------------------
+<div class="inpu-group">
+	<div class="field-titles align-top">
+	  <label><sup>*</sup> Bullet Points <span data-tooltip="v6aksy-tooltip" class="top has-tip" data-click-open="false" tabindex="1" title="" aria-describedby="13mxaw-tooltip" data-yeti-box="13mxaw-tooltip" data-toggle="13mxaw-tooltip" data-resize="13mxaw-tooltip" data-events="resize"><img src="./images/tooltip.svg" alt=""></span></label>
+	</div>
+	<div class="fields">
+	  <textarea name="" class="desc-textarea" id="bull_point" style="display: none;" aria-hidden="true"></textarea>
+	</div>
+</div>
+
+
+------------------ Center button ---------------------
+//
+<div class="centered-button">
+	<label class="input-button btn md green">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+			<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M34.3 69.5L6.1 54.7 93.9 5l-9.7 85.1-23.8-12.5L41.6 95V71.5L93.9 5"></path>
+		</svg>
+		<input type="submit" value="Upload">
+	</label>
+</div>
+
+------------------ Checkbox button ---------------------
+<div class="inpu-group desc-check">
+	<div class="field-titles">
+		<label>Is Index <span data-tooltip="u8uskr-tooltip" class="top has-tip" data-click-open="false" tabindex="1" title="" aria-describedby="820bjh-tooltip" data-yeti-box="820bjh-tooltip" data-toggle="820bjh-tooltip" data-resize="820bjh-tooltip" data-events="resize"><img src="/assets/images/tooltip.svg" alt=""></span></label>
+	</div>
+	<div class="fields">
+		<input type="checkbox" checked="" data-val="true" data-val-required="The IsIndex field is required." id="IsIndex" name="IsIndex" value="true">
+	</div>
+</div>
+
+
+------------------ Radio button ---------------------
+<div class="inpu-group desc-check">
+	<div class="field-titles">
+		<label>Clearance Sale <span data-tooltip="8m6s9v-tooltip" class="top has-tip" data-click-open="false" tabindex="1" title="" aria-describedby="3ob8cv-tooltip" data-yeti-box="3ob8cv-tooltip" data-toggle="3ob8cv-tooltip" data-resize="3ob8cv-tooltip" data-events="resize"><img src="/assets/images/tooltip.svg" alt=""></span></label>
+	</div>
+	<div class="fields">
+		<div class="multi-radio-con">
+			<span>
+				<input type="radio" value="false" id="clssale-no" checked="checked" data-val="true" data-val-required="The ClearanceSale field is required." name="ClearanceSale">
+				<label for="clssale-no">No</label>
+			</span>
+			<span>
+				<input type="radio" value="true" id="clssale-yes" name="ClearanceSale">
+				<label for="clssale-yes">Yes</label>
+			</span>
+		</div>
+	</div>
+</div>
+
+
+
+================================================================================================================
+Pagination Code
+
+PaginatedList
+IQueryable
+.AsQueryable()
+
+public PaginationResponseModel Pagination { get; set; }
+------------------------------------------------
+private bool _isGetAll = false;
+public int? PageIndex { get; set; }
+public int? PageSize { get; set; }
+public bool? IsGetAll 
+{
+	get { return _isGetAll; }
+	set { _isGetAll = value ?? false; } 
+}
+-----------------------------------------------
+this.ControllerContext?.RouteData?.Values[StringConstants.controller]?.ToString() ?? string.Empty,
+this.ControllerContext?.RouteData?.Values[StringConstants.action]?.ToString() ?? string.Empty,
+------------------------------------------------
+PaginatedList<DisplayAllProductsModel> displayAllProducts = PaginatedList<DisplayAllProductsModel>.CreateAsync(displayAllProductsQuery.AsNoTracking(), request.PageIndex ?? 1, request.PageSize ?? 10, request._isGetAll);
+
+------------------------------------------------
+int pageNumber = 1, int pageSize = 10
+CommonHelper.CorrectWrongPageNumber(ref pageNumber);
+------------------------------------------------
+PageIndex = pageNumber,
+PageSize = pageSize
+-----------------------------------------------
+DisplayOptionVM displayOptionVM = await this.GetOptionDataByOptionList(optionList);
+
+PaginationRequestModel paginationRequestModel = new PaginationRequestModel() 
+{
+	ControllerName = this.ControllerContext?.RouteData?.Values[StringConstants.controller]?.ToString() ?? string.Empty,
+	ActionMethod = this.ControllerContext?.RouteData?.Values[StringConstants.action]?.ToString() ?? string.Empty,
+	HasPreviousPage = optionList.HasPreviousPage,
+	HasNextPage = optionList.HasNextPage,
+	PageIndex = optionList.PageIndex,
+	TotalPages = optionList.TotalPages,
+	PageSize = pageSize
+};
+
+PaginationResponseModel paginationResponse = CommonHelper.PaginationRedirectUrl(paginationRequestModel);
+displayOptionVM.Pagination = paginationResponse;
+---------------------------------------------------------
+@if (Model != null && Model.Pagination != null)
+{
+    <partial name="PaginationPartial" model="Model.Pagination"/>
+}
+----------------------------------------------------------
+int serialNo = CommonHelper.CalculateSerialNumber(pageNumber, pageSize);
+================================================================================================================
+Accordian Section
+
+<ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+    <li class="accordion-item is-active" data-accordion-item>
+        <a href="#" class="accordion-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="none" stroke-miterlimit="10"><circle cx="50" cy="50" r="45" /><path d="M42.4 43.2H50v32.9h11.8m-11.8 0H38.2" /><circle cx="47.6" cy="26.3" r="2.4" /></g></svg> <strong>Product :</strong>  @Model.ProductLabel
+            <span class="sec-update-log">Last Update On: 1/12/2023 8:50:47 AM, by Yasin PDS</span>
+        </a>
+        <div class="accordion-content" data-tab-content>
+		
+		<form class="add-option-form" id="add-option-form-id" method="post" enctype="multipart/form-data" asp-action="[ACTION]" asp-controller="[CONTROLLER_NAME]">
+            
+			<div class="frm-fields-cont">
+			
+			
+			
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                @*properties render here*@
+
+			
+
+
+            </div>
+			
+			</form>
+        </div>
+
+    </li>
+
+</ul>
+
+===============================================================================================================
+<li class="accordion-item is-active" data-accordion-item="">
+	<a href="#" class="accordion-title" aria-controls="u3301x-accordion" id="u3301x-accordion-label" aria-expanded="true">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="none" stroke-miterlimit="10"><circle cx="50" cy="50" r="45"></circle><path d="M42.4 43.2H50v32.9h11.8m-11.8 0H38.2"></path><circle cx="47.6" cy="26.3" r="2.4"></circle></g></svg> Product Features Explained
+		<span class="sec-update-log">Last Update On: 1/12/2023 8:50:47 AM, by Yasin PDS</span>
+	</a>
+
+	<div asp-validation-summary="All" class="text-danger"></div>
+
+	<div class="accordion-content" data-tab-content="" role="region" aria-labelledby="u3301x-accordion-label" aria-hidden="false" id="u3301x-accordion" style="display: block;">
+		<div class="frm-fields-cont">
+			<div id="productFeaturesExplainedPartial-js"></div>
+		</div>
+	</div>
+</li>
+===============================================================================================================
+//Without collapsable
+<ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+    <li class="accordion-item is-active" data-accordion-item>
+        <div class="accordion-content" data-tab-content>
+			
+			
+	
+			
+        </div>
+
+    </li>
+</ul>
+================================================================================================================
+<a href="#" class="btn sm cyan">View on Website</a>
+
+
+===============================================================================================================
+
+===============================================================================================================
+//Fluent Validation
+RuleForEach(x => x.Orders).ChildRules(order => 
+{
+  order.RuleFor(x => x.Total).GreaterThan(0);
+});
+===============================================================================================================
+//function with ajax call
+function CheckEditProductSkuCode(skuCode) {
+    $.ajax({
+        url: '/Products/CheckProductSkuCodeForEdit',
+        type: 'POST',
+        data: {
+            ProductSkuCode: skuCode,
+            ProductId: $("#ProductId").val()
+        },
+        async: false,
+        success: function (response) {
+            console.log('response', response);
+            
+
+        },
+        error: function (xhr, status, error) {
+            // Handle the failure response
+            console.log('AJAX request failed');
+            console.log(error);
+        }
+    })
+}
+
+===================================================================================================================
+//Display View Image with icon
+@if (ValidateObject.IsNotNull(Model.VcMediumImage))
+{
+	<span onclick="OpenNewWindow('/uploads/optionmapping/@Model.VcMediumImage')"><img src="/assets/images/view-image.svg" alt="Click here to view main image" class="btn" width="35" height="35" /></span>
+}
+
+===========================================================================================================
+ajax File upload
+
+let $form = $("#updateProdStep2-js");
+
+var formData = new FormData($form[0]);
+formData.append('vcColorLargeImageFile', $('#vcColorLargeImageFile')[0].files[0]);
+formData.append('ProductId', ProductId);
+
+url: '/Products/UpdateProduct_2Partial',
+type: 'POST',
+data: formData,
+async: false,
+processData: false,
+contentType: false,	
+
+===============================================================================================================
+//ajax headers verification token
+var headers = { __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() };
+url: '/Products/UpdateSortOrderColorOption',
+type: 'POST',
+headers: headers,
+
+
+var headers = { __RequestVerificationToken: $("#productManufactureFrm-js").find('input[name="__RequestVerificationToken"').val() };
+
+===============================================================================================================
+
+$(document).on('click', '.remove-model-popup', function () {
+
+});
+
+===============================================================================================================
+
+
+//Scroll to position
+ScrollToPosition($("#catWiseParamsWrapper-js"));
+
+complete: function (data) {
+	ScrollToPosition($("#catWiseParamsWrapper-js"));
+	console.log('test5');
+}
+===============================================================================================================
+var data = $('form').serialize();
+
+complete: function (data) {
+	ScrollToPosition($("#catWiseParamsWrapper-js"));
+	console.log('test5');
+}
+===============================================================================================================
+//Partial
+@{
+    Layout = "~/Views/Shared/_PartialWindowLayout.cshtml";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Layout = "~/Views/Shared/_NewWindowLayout.cshtml";
+    ViewBag.Title = "Manage Product Features";
+}
+
+===============================================================================================================
+//Dropdown
+
+<select asp-for="ProductCountCondition" asp-items="Model.ProductCountList"></select>
+
+//Get Multiple data
+var foo = $('#multiple').val();
+-------------------------------------------------------------------------------
+List<CommonDrodownModel> productCountList = new List<CommonDrodownModel>()
+{
+	new CommonDrodownModel()
+	{
+		Id = 0,
+		Name = "Equal"
+	},
+	new CommonDrodownModel()
+	{
+		Id = 1,
+		Name = "Greater"
+	},
+	new CommonDrodownModel()
+	{
+		Id = 2,
+		Name = "Less"
+	},
+};
+
+brandListVM.ProductCountList = new SelectList(productCountList, "Id", "Name");
+-------------------------------------------------------------------------------
+List<CommonDrodownBoolModel> activeList = new List<CommonDrodownBoolModel>()
+{
+	new CommonDrodownBoolModel()
+	{
+		Name = "N/A",
+		Value = null,
+	},
+	new CommonDrodownBoolModel()
+	{
+		Name = "Active",
+		Value = true,
+	},
+	new CommonDrodownBoolModel()
+	{
+		Name = "InActive",
+		Value = false,
+	},
+
+};
+brandListVM.ActiveDropdown = new SelectList(activeList, "Value", "Name", ProductCountCondition);
+-------------------------------------------------------------------------------
+====================================================================================================
+//Mapper
+UpdateProduct2Model updateProduct2Model = _mapper.Map<UpdateProduct2Model>(updateProduct_2VM);
+
+//Mapper convert list
+List<CommonDrodownModel> brandCatPrefixes = _mapper.Map<List<CommonDrodownModel>>(brandCatPrefixList);
+
+------------------------------------------------------------------------------------------------
+//Model
+public class PromotionModel:IMapFrom<AppPromotions>
+    {
+        public int PromotionId { get; set; }
+        public string Promotion { get; set; }
+        public string PromotionImage { get; set; }
+        public HtmlString? ValidationMsg { get; set; }
+
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<AppPromotions, PromotionModel>()
+                .ForMember(dest => dest.PromotionId, opt => opt.MapFrom(src => src.intPromotionID))
+                .ForMember(d => d.Promotion, opt => opt.MapFrom(s => s.vcPromotion))
+                .ForMember(d => d.PromotionImage, opt => opt.MapFrom(s => s.vcPromotionImage));
+        }
+    }
+	
+IQueryable<PromotionModel> promotionQuery = _context.AppPromotion.AsNoTracking().OrderByDescending(e=>e.dtCreatedOn)
+												.ProjectTo<PromotionModel>(_mapper.ConfigurationProvider).ToList().AsQueryable();
+
+====================================================================================================
+string folderPath = Path.Combine(_hostingEnv.WebRootPath, StringConstants.Uploads);
+====================================================================================================
+//Client side validation
+[DisplayName("Product Code")]
+=================================================================================================
+//Image upload return string
+
+string folderPath = Path.Combine(_hostingEnv.WebRootPath, StringConstants.Uploads);
+addDownloadableFile.vcImageFileName = await CommonHelper.UploadFile(addDownloadableFile.UploadFile, folderPath, StringConstants.DownloadableFilesSection);
+
+=================================================================================================
+Comment
+/* Comment
+====================================*/
+=================================================================================================
+//Delete Functionality
+
+ViewData[TempDataKeys.CurrentUrl] = string.Concat(HttpContext.Request.Path.Value, HttpContext.Request.QueryString.Value);
+
+<td><a class="remove-modelPopup-js del-record" data-url="@Url.Action("DeleteOptionMapping","Products", new {intOMID = optionMappingListView.IntOMID})" data-getUrl="@Convert.ToString(ViewData[TempDataKeys.CurrentUrl])"></a></td>
+
+
+=================================================================================================
+//render scripts
+@section Scripts{
+	<script></script>
+}
+=================================================================================================
+//null handling viewdata
+
+if (ViewData.Keys.Contains(TempDataKeys.ActionType) && ValidateObject.IsNotNull(ViewData[TempDataKeys.ActionType]))
+{
+    CommandActionEnum = (CommandActionEnum)ViewData[TempDataKeys.ActionType];
+}
+
+==============================================================================================
+using Microsoft.EntityFrameworkCore;
+
+LINQ Query Syntax
+
+=============================================================================================
+ModelState.Clear();
+foreach (ValidationFailure error in validationFailures)
+{
+    ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+}
+=============================================================================================
+await _mailService.SendEmailAsync(new MailRequest { ToEmail = "saranglad786@gmail.com", Subject = "Test", Body = "Test Body" });
+=============================================================================================
+
+
+<div class="two-section">
+    <h2 class="heading-noborder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <g fill="none" stroke-linecap="round" stroke-miterlimit="10">
+                <path d="M95 72.5v-45L50 5 5 27.5v45L50 95z"></path>
+                <path d="M95 27.5L50 50 5 27.5M50 50v45"></path>
+                <path d="M70.4 15.2L27.5 38.7v22m55.3 2.6L62.8 74V58.1l20-10.7z"></path>
+            </g>
+        </svg> Add Brand
+    </h2>
+
+    <a href="https://localhost:7245/Products/BrandList" class="btn green sm">Back to Brand List</a>
+</div>
+----------------------------------------------------------------------
+git config --global user.name "SarangLad-DS"
+git config --global user.email "saranglad@digitalsalt.in"
+
+git config credential.username "Digisalt03"
+git config --global user.name "Digisalt03"
+git config --global user.email "digisalt03@futuregenerali.in"
+
+
+SarangLad-DS
+github ds - Test_4321@
+
+Digisalt03 
+fgli - Welcome@#654321
+
+
+========================================================================
+{
+  "status": true,
+  "errors": [],
+  "responseData":{
+    
+  }
+}
+========================================================================
+//delete response
+
+{
+  "status": true,
+  "errors": [],
+  "responseData":{
+    "successMessage": "Deleted Successfully"
+  }
+}
+----------------------------------------------------
+"pageInfo": {
+      "totalCount": 50,
+      "page": 1,
+      "limit": 10
+    }
+------------------------------------------------------------------
+/getLeadById?leadId="123123"&userId="223322"
+
+/getLeadList_request?searchText="123123"&field="leadId"&order="asc"&page=1&limit=10
+
+---------------------------------------------------------------------
+Create a script for "mstDataTypeValues" for the following columns in ms sql 
+=======================================================================
+//publish nuget package
+
+dotnet nuget push C:\Users\info\Desktop\temp2\FGLI-MicroServicesDev\FGLI-SharedLibrary\FGLI-SharedLibrary\bin\Release\fgli-sharedlibrary.1.0.0.34.nupkg --api-key oy2agefbdi22a243liwq2a2r3hzfrywuli5mmxe7yv7cve --source https://api.nuget.org/v3/index.json
+
+
+=========================================================================
+getList
+
+string? searchText, string? field, SortOrderType order = SortOrderType.Desc, int page = 1, int limit = 10
+
+
+==========================================================================
+vcApplicationNumber
+nvarchar(100)
+------------------------------------------------
+{
+  "status": true,
+  "errors": [],
+  "responseData": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiRW1wbG95ZWUiLCJhZ2VudGNvZGUiOiJFbXBsb3llZSIsImFnZW50bmFtZSI6IkVtcGxveWVlIiwiSXNBY3RpdmUiOiJUcnVlIiwibmJmIjoxNzAyMTM2MDYwLCJleHAiOjE3MDIxMzc4NjAsImlhdCI6MTcwMjEzNjA2MCwiaXNzIjoiRkdMSSIsImF1ZCI6WyJGR0xJIiwiRkdMSSJdLCJuYW1laWQiOiI4NzAwMjAzNyJ9.Xu4dcPb3M5IUBMjdf2UMCJkBA61C4NDujWPoFVIikAw"
+  }
+}
+==========================================================
+{
+  "vcApplicationNumber": "E-00004",
+  "communicationDetails": [
+	{
+      "assureType": 1,
+      "caAddressLine1": "test4111",
+      "caAddressLine2": "test4222",
+      "caAddressLine3": "test4333",
+      "isPASameCA": true,
+	  "caLandmark": "Ajay Moll"
+    }
+  ]
+}
+===========================================================
+tblPF_PersonalDetails - array		(DONE)
+tblPF_CommunicationDetails - array 	(DONE)
+tblPF_EmploymentDetails - array		(DONE)
+tblPF_FamilyDetails - Array			Code (Done) | Testing
+tblPF_HealthDetails - single		Code (Done) | Testing
+ 
+tblPF_LifeStyleDetails - single 	Code *  | Testing 
+tblPF_InsuranceHistory - array		Code * | Testing 
+tblPF_PaymentDetails - single		Code * | Testing 
+tblPF_CkycDocuments - array			Code | Testing 
+tblPF_Form60Questions - single		Code | Testing 
+
+
