@@ -593,16 +593,6 @@ nvarchar(100)
   ]
 }
 ===========================================================
-tblPF_PersonalDetails - array		(DONE)
-tblPF_CommunicationDetails - array 	(DONE)
-tblPF_EmploymentDetails - array		(DONE)
-tblPF_FamilyDetails - Array			Code (Done) | Testing
-tblPF_HealthDetails - single		Code (Done) | Testing
- 
-tblPF_LifeStyleDetails - single 	Code *  | Testing 
-tblPF_InsuranceHistory - array		Code * | Testing 
-tblPF_PaymentDetails - single		Code * | Testing 
-tblPF_CkycDocuments - array			Code | Testing 
-tblPF_Form60Questions - single		Code | Testing 
+
 
 
