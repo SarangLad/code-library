@@ -1,3 +1,7 @@
 Simplify the following content in simple English and short -
 
 ChatGPT, based on this software requirement {[Insert Requirement]}, could you generate a list of potential test cases?
+
+ ChatGPT, here is a list of test cases: {[Insert Test Cases]}. Based on your understanding, could you help prioritize these test cases?
+
+Generate as many test cases as possible to simulate complete user journeys, including edge cases as following content -
