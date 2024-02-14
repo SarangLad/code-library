@@ -7,3 +7,25 @@ ChatGPT, based on this software requirement {[Insert Requirement]}, could you ge
 Generate as many test cases as possible to simulate complete user journeys, including edge cases as following content -
 
 continue test cases and Generate as many test cases as possible to simulate complete user journeys, including edge cases as following content -
+
+/* Start Prompt upwork proposal
+------------------------------------------------------*/
+Prompt 1 - 
+I want you craft Upwork Proposals based on my skills and experiance. Do you understand?
+
+
+Prompt 2 -
+This is my upwork description: [copy and paste description]
+
+Do you understand the skills and experiance I have?
+
+
+Prompt 3 - 
+Now using the information provided, craft me a proposal for this job: [copy and paste job description]
+
+
+Prompt 4 - 
+Write a one line hook that targets the pain point of the client.
+
+/* End Prompt upwork proposal
+------------------------------------------------------*/
