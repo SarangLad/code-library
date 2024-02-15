@@ -16,3 +16,16 @@ Now using the above information provided, craft me a proposal for this job: [cop
 
 
 Generate content within upto three paragraph with simple english and also Write a one line hook that targets the pain point of the client.
+
+
+--------------- start here ---------------
+Prompt 1
+
+Hi, I have expertise in c#, asp.net core and asp.net mvc technology I work those technology 4 years now I'm going to send proposal to client please write personalise and detail content as following job description - 
+
+Prompt 2
+make above content such that its write by actual human.
+
+--------------- end here ---------------
+
+
