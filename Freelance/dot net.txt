@@ -1,0 +1,18 @@
+
+I'm freelancer and having following skills - 
+
+Backend Technologies:
+
+- ASP.NET MVC | ASP.NET CORE 8
+- ASP.NET Framework
+- C#
+- ASP.NET WebAPI
+- Entity Framework
+- LINQ
+- Dapper ORM
+- SQL DB
+
+Now using the above information provided, craft me a proposal for this job: [copy and paste job description]
+
+
+Generate content within upto three paragraph with simple english and also Write a one line hook that targets the pain point of the client.
