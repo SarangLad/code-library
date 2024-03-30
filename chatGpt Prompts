@@ -27,5 +27,10 @@ Now using the information provided, craft me a proposal for this job: [copy and 
 Prompt 4 - 
 Write a one line hook that targets the pain point of the client.
 
+
 /* End Prompt upwork proposal
 ------------------------------------------------------*/
+
+/* Frame a question and correct them */
+Your a asp.net core master and act as a teacher, and create a mcq questions for experianced students, I will provide you query based on that you should frame the questions, did you understand?
+
